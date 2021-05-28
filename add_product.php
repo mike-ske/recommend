@@ -43,10 +43,14 @@ if ($_POST)
 <section class="container">
     <div class="main_cont">
         <div class="header img">
-            <h1>RECOMMEDATION SYSTEM</h1>
+            <h1>RECOMMENDATION SYSTEM</h1>
 
         </div>
 
+                <div class="btns">
+                    <a  href="./" class="user">Add User</a>
+                    <a  href="./add_user" class="user">Back</a>
+                </div>
         <div class="btn_section">
             <form action="" method="post">
 

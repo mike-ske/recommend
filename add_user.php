@@ -1,9 +1,10 @@
 <?php
 
+
 use Recommend\ClassFile\User;
 use Recommend\ClassFile\connect;
 
-
+session_start();
 require_once 'vendor/autoload.php';
 
 /**
@@ -11,7 +12,7 @@ require_once 'vendor/autoload.php';
  */
 
 
- if (isset($_POST['send'])) {
+ if ($_POST) {
 
     $user = new User($_POST);
 
@@ -24,10 +25,14 @@ require_once 'vendor/autoload.php';
     else
     {
         $_SESSION['message'] = connect::$error['message'];
+        
     }
     // selects user from database
     $query = $user->select_user();
-
+    if (!$query) 
+    {
+        $_SESSION['message'] = connect::$error['message'];
+    }
 
  }
 
@@ -40,11 +45,18 @@ require_once 'vendor/autoload.php';
 <section class="container">
     <div class="main_cont">
         <div class="header img">
-            <h1>RECOMMEDATION SYSTEM</h1>
+            <h1>E-Store RECOMMENDATION SYSTEM</h1>
 
         </div>
 
-        <div class="btn_section">
+        <div class="btns">
+            <a  href="./" class="user">Add User</a>
+            <a  href="./add_user" class="user blue">Back</a>
+        </div>
+            
+           
+
+        <div class="table">
                 <?php
                     if (isset($_SESSION['message'])) 
                     {
@@ -55,16 +67,7 @@ require_once 'vendor/autoload.php';
                         unset($_SESSION['message']);
                     }
 
-                    
                 ?>
-                <div class="btns">
-                    <a  href="./" class="user">Add User</a>
-                    <a  href="/add_user" class="user">Back</a>
-                </div>
-                   
-            </div>
-
-        <div class="base table">
             <table class="striped">
                 <tr>
                     <th>User Name</th>

@@ -63,7 +63,7 @@ class user {
         {
             return $this->query;
         }
-        return;
+    
     }
 
 }
