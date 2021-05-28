@@ -1,0 +1,18 @@
+RewriteEngine on
+
+# This code settings removes any file with .php extension i.e www.example.com/index.php becomes
+# www.example.com/index
+
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+
+# This code settings removes the index.php name in the URL When the site first loads
+
+Options +FollowSymLinks -MultiViews
+RewriteBase  /
+
+RewriteRule ^index.\.php/?$ / [L,R=301,NC]
+

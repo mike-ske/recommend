@@ -1,0 +1,21 @@
+{
+    "name": "recommend/recommendation",
+    "description": "a recommendation system",
+    "type": "project",
+    "license": "licensed",
+    "authors": [
+        {
+            "name": "micah",
+            "email": "micahlumona@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+          "Recommend\\ClassFile\\":"classes/"
+        }
+    },
+    "require": {
+        "smarty/smarty": "^3.1"
+    }
+}
